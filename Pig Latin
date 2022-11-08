@@ -1,0 +1,12 @@
+function translatePigLatin(str) {
+  const vowelRegex = /^[aeiou]+/
+  const consonantRegex = /^[^aeiou]+/
+  if(vowelRegex.test(str))
+    return str + "way"
+   
+  let letter = str.match(consonantRegex)[0];
+  let letterLength = str.match(consonantRegex)[0].length
+  return str.slice(letterLength) + letter + "ay"
+}
+
+translatePigLatin("glove");

@@ -1,0 +1,26 @@
+function myReplace(str, before, after) {
+
+  const startsWithCapitalRegex = /^[A-Z]/
+  const startsWithLowerRegex = /^[^A-Z]/
+  let strArray = str.split(" ");
+  const indexOfBefore = strArray.indexOf(before)
+  
+  if(startsWithCapitalRegex.test(strArray[indexOfBefore])){
+  
+    let newAfter = after[0].toUpperCase() + after.slice(1)
+    return(str.replace(before, newAfter));
+    
+  }
+  
+  else if(startsWithLowerRegex.test(strArray[indexOfBefore])){
+  
+    let newAfter = after[0].toLowerCase() + after.slice(1)
+    return(str.replace(before, newAfter));
+    
+  }
+  
+  return str.replace(before, after)
+    
+}
+
+myReplace("I think we should look up there", "up", "Down");

@@ -1,0 +1,17 @@
+function convertHTML(str) {
+
+  const entities = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;"
+    }
+    
+    const regex = /[&<>"']/
+    
+    const strToArr = str.split("")
+    const convertedArrOfStr = strToArr.map(letter => letter = regex.test(letter) ? entities[letter]: letter)
+    
+    return convertedArrOfStr.join("")  
+}

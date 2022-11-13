@@ -1,0 +1,13 @@
+const[num1, num2] = arg
+  
+  for(let num of arg){
+    if(typeof(num) !== "number")
+      return undefined
+    else if(arg.length === 1)
+      return num2 => addTogether(num1, num2)
+    }
+    
+  return num1 + num2
+}
+
+console.log(addTogether(2)(3));

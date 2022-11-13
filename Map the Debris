@@ -1,0 +1,19 @@
+function orbitalPeriod(arr) {
+
+  const GM = 398600.4418; //μ
+  const earthRadius = 6367.4447;
+  const pi = Math.PI
+
+  let result = arr.map(obj => {
+    const avgAlt = obj.avgAlt  
+    //a^3 = r^3, r = earthRadius + avgAlt
+    const semiMajorAxis = Math.pow(earthRadius + avgAlt, 3)
+    const orbitalPeriods = Math.round((2*pi)*(Math.pow(semiMajorAxis/GM, 0.5)))
+    return ({name: obj.name, orbitalPeriod: orbitalPeriods})
+  })
+  
+  return result;
+}
+
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
+orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}])
